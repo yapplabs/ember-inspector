@@ -44,6 +44,7 @@
     "broccoli-merge-trees": "^3.0.0",
     "broccoli-stew": "^1.6.0",
     "broccoli-string-replace": "^0.1.1",
+    "chrome-webstore-upload-cli": "^1.2.0",
     "ember-async-image": "0.1.1",
     "ember-cli": "~3.3.0",
     "ember-cli-app-version": "^3.2.0",
@@ -84,7 +85,8 @@
     "mkdirp": "^0.5.1",
     "qunit-dom": "^0.6.2",
     "rimraf": "^2.5.2",
-    "yauzl": "^2.10.0"
+    "yauzl": "^2.10.0",
+    "zip-folder": "^1.0.0"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"

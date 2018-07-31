@@ -14,8 +14,11 @@ cache:
 
 env:
   global:
+    # Not sure what these existing first two are
     - secure: EYaa9XxKkfJbQENuQPNFAIIieMWBiSknGCO9he8MH8ZHbqJODTjFixJnD5ZYLZCXH67SmjorBneznQHp8Xaf0aIuHbRhRY/MOUzqEWw12MmexW1kJF5wX+oxEnvzoiVAUJLNTIQi+g5WN43YBleASKMjUPa2i/3GBIcTlsVdf3U=
     - secure: g+Qh9jUTpK1yFpcZi9O8rsybfqv3TFE2hTFvG8XZ+QaQYBLLZ52JfhsJhdI0cvRRp7qWOhzE784iadkPWgvhj8c0/N/af5ZrSP3ceiv6RKqSUG2/iQyzX/qUh3vqrZ7a4xTsELTwswQtR+sA+I+DQVVlnqcCqYTAW2SFR/D4H8o=
+    # New variables for Chrome publishing
+    - secure: "mMT0v94XsUSPukqo/TPySjqerw2SwpzXOOrbtVpBS8MvPeCJn2Zjyj++GmAzXWWVC8a7j+vBrehvhBcaD0u7EmC5f0tVnMgxT2UPpLtkaAOqvJirj9wOhrdMUUvB3lus8xxk8ZmNahXzXCNkbOWTcdJdpFqnP//BNMOLU16y9Aw="
 
 jobs:
   fail_fast: true
