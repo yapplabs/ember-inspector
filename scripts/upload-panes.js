@@ -30,7 +30,7 @@ var env = process.env.EMBER_ENV || 'development';
 var folderName = 'panes-' + version.replace(/\./g, '-');
 var s3 = new AWS.S3({ params: { Bucket: 'ember-inspector-panes', ACL: 'public-read' } });
 
-['chrome', 'firefox', 'bookmarklet'].forEach(function(dist) {
+['chrome', 'firefox', 'safari', 'bookmarklet'].forEach(function(dist) {
     var body = fs.createReadStream('dist/' + dist + '-pane.zip');
     s3.upload({ Body: body, Key: env + '/' + folderName  +'/' + dist + '.zip' }).
       send(function(err, data) { if (err) { throw err; } });

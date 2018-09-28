@@ -16,9 +16,9 @@
     "test": "ember test",
     "watch": "ember build --watch",
     "serve:bookmarklet": "ember serve --port 9191",
-    "build:production": "EMBER_ENV=production node scripts/download-panes.js && ember build --environment production && grunt compress:chrome compress:firefox clean-tmp",
+    "build:production": "EMBER_ENV=production node scripts/download-panes.js && ember build --environment production && grunt compress:chrome compress:firefox compress:safari clean-tmp",
     "upload": "yarn build:production && grunt s3:bookmarklet",
-    "compress:panes": "grunt compress:chrome-pane && grunt compress:firefox-pane && grunt compress:bookmarklet-pane",
+    "compress:panes": "grunt compress:chrome-pane && grunt compress:firefox-pane && grunt compress:safari-pane && grunt compress:bookmarklet-pane",
     "upload:panes": "yarn build && yarn compress:panes && node scripts/upload-panes.js",
     "lock-version": "yarn build:production && yarn compress:panes && EMBER_ENV=production node scripts/upload-panes.js"
   },

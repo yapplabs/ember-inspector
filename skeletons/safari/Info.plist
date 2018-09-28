@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Tilde, Inc.</string>
+	<key>Builder Version</key>
+	<string>14606.1.36.1.9</string>
+	<key>CFBundleDisplayName</key>
+	<string>ember-inspector</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.emberjs.ember-inspector</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>{{EMBER_INSPECTOR_VERSION}}</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Description</key>
+  <string>Tool for debugging Ember applications.</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<dict>
+  <key>Website Access</key>
+    <dict>
+    	<key>Include Secure Pages</key>
+    	<true/>
+    	<key>Level</key>
+    	<string>All</string>
+    </dict>
+  </dict>
+	<key>Website</key>
+  <string>https://emberjs.com</string>
+</dict>
+</plist>

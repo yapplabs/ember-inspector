@@ -41,6 +41,15 @@ module.exports = function(grunt) {
         src: '**/*',
         cwd: 'dist/firefox'
       },
+      safari: {
+        options: {
+          archive: 'dist/safari/ember-inspector.safariextension/ember-inspector.zip'
+        },
+        expand: true,
+        pretty: true,
+        src: '**/*',
+        cwd: 'dist/ember-inspector.safariextension'
+      },
       "chrome-pane": {
         options: {
           archive: 'dist/chrome-pane.zip'
@@ -57,6 +66,15 @@ module.exports = function(grunt) {
         expand: true,
         pretty: true,
         cwd: `dist/firefox/${versionedPane}`,
+        src: ['**/*']
+      },
+      "safari-pane": {
+        options: {
+          archive: 'dist/safari-pane.zip'
+        },
+        expand: true,
+        pretty: true,
+        cwd: `dist/safari/ember-inspector.safariextension/${versionedPane}`,
         src: ['**/*']
       },
       "bookmarklet-pane": {

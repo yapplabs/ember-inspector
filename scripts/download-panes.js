@@ -26,7 +26,7 @@ rimraf('dist_prev', function(err) {
   packageJson.previousEmberVersionsSupported.forEach(function(version) {
     var dasherizedVersion = version.replace(/\./g, '-');
     var paneFolder = 'panes-' + dasherizedVersion;
-    ['chrome', 'firefox', 'bookmarklet'].forEach(function(dist) {
+    ['chrome', 'firefox', 'safari', 'bookmarklet'].forEach(function(dist) {
       downloadPane(paneFolder, dist);
     });
   });

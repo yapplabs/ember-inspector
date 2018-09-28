@@ -130,7 +130,7 @@ module.exports = function(defaults) {
   });
 
   const emberDebugs = [];
-  ['basic', 'chrome', 'firefox', 'bookmarklet', 'websocket'].forEach(function(dist) {
+  ['basic', 'chrome', 'firefox', 'safari', 'bookmarklet', 'websocket'].forEach(function(dist) {
     emberDebugs[dist] = map(emberDebug, '**/*.js', function(content) {
       return `(function(adapter, env) {\n${content}\n}('${dist}', '${env}'));`;
     });
@@ -167,6 +167,11 @@ module.exports = function(defaults) {
 
   replacementPattern = replacementPattern.concat(emberInspectorVersionPattern);
 
+  const skeletonSafari = replace('skeletons/safari', {
+    files: ['*'],
+    patterns: replacementPattern
+  });
+
   const skeletonWebExtension = replace('skeletons/web-extension', {
     files: ['*'],
     patterns: replacementPattern
@@ -180,6 +185,12 @@ module.exports = function(defaults) {
   let firefox = mergeTrees([
     mv(mergeTrees([tree, emberDebugs.firefox]), webExtensionRoot),
     skeletonWebExtension
+  ]);
+
+  let safari = mergeTrees([
+    mv(mergeTrees([tree, emberDebugs.safari]), webExtensionRoot),
+    skeletonWebExtension,
+    skeletonSafari
   ]);
 
   let chrome = mergeTrees([
@@ -205,6 +216,10 @@ module.exports = function(defaults) {
         mv(`${prevDist}/firefox/panes-${version}`, `panes-${version}`),
         firefox
       ]);
+      safari = mergeTrees([
+        mv(`${prevDist}/safari/ember-inspector.safariextension/panes-${version}`, `panes-${version}`),
+        safari
+      ]);
       chrome = mergeTrees([
         mv(`${prevDist}/chrome/panes-${version}`, `panes-${version}`),
         chrome
@@ -214,6 +229,7 @@ module.exports = function(defaults) {
       const emberDebugFile = writeFile('ember_debug.js', 'void(0);');
       chrome = mergeTrees([mv(file, `panes-${version}`), chrome]);
       firefox = mergeTrees([mv(file, `panes-${version}`), firefox]);
+      safari = mergeTrees([mv(file, `panes-${version}`), safari]);
       bookmarklet = mergeTrees([mv(file, `panes-${version}`), mv(emberDebugFile, `panes-${version}`), bookmarklet]);
     }
   });
@@ -223,6 +239,7 @@ module.exports = function(defaults) {
   const dists = {
     chrome,
     firefox,
+    safari,
     bookmarklet,
     websocket: mergeTrees([tree, emberDebugs.websocket]),
     basic: mergeTrees([tree, emberDebugs.basic])
@@ -267,6 +284,7 @@ module.exports = function(defaults) {
     output = mergeTrees([
       mv(dists.bookmarklet, 'bookmarklet'),
       mv(dists.firefox, 'firefox'),
+      mv(dists.safari, 'safari/ember-inspector.safariextension'),
       mv(dists.chrome, 'chrome'),
       mv(dists.websocket, 'websocket'),
       mv(dists.basic, 'testing')
